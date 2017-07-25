@@ -19,7 +19,7 @@ into this structure:
 $ tree ~/redsym/
 .
 ├── The Doors
-    ├── (1967) The Doors (40th Anniversary Edition)  (WPCR-12716)  [FLAC]
+	├── (1967) The Doors (40th Anniversary Edition)  (WPCR-12716)  [FLAC]
 	├── (1971) L.A. Woman (40th Anniversary Edition)  (WPCR-12721)  [MP3] 
 	├── (1971) L.A. Woman (5.1 Surround 24-88.2)  (CAPP 75011 SA)  [FLAC]
 	├── (1971) L.A. Woman (62612-9)  [FLAC] 
@@ -45,7 +45,7 @@ $ tree ~/redsym/
 ## Configuration
 Configure folders, mysql database name/user/pass in "settings.py".
 
-##Running the script
+## Running the script
 
 	$python3 redsym.py update
 
