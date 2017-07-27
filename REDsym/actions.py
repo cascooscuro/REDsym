@@ -22,9 +22,9 @@ def update_wm2():
 
     (new_dir_folders_only_music, deleted_dir_folders) = REDsym.bigtable.update_bigtable()
 
-    print ("Start!!!!")
-    print ("There are: ", len(new_dir_folders_only_music),  " new folders to update\n" )
-    print ("There are: ", len(deleted_dir_folders),  " folders to delete\n" )
+    print ("##### START symlinking #####")
+    print ("There are: ", len(new_dir_folders_only_music),  " new folders to symlink\n" )
+    print ("There are: ", len(deleted_dir_folders),  " symlinks to delete\n" )
     
     for deleted_dir_folder in deleted_dir_folders:
         

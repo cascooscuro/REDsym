@@ -4,6 +4,8 @@ REDsym uses existing metadata saved by Whatmanager2 (https://github.com/karamano
 
 It uses the ReleaseInfo2.txt files to extract: artists names, album name, year, codec, Catalogue number... and create the mirrored structure.
 
+REDsym does not modify or delete any of the source files or folders to be symlinked.  
+
 It turns this structure:
 
 ```
@@ -48,4 +50,5 @@ Configure folders, mysql database name/user/pass in "settings.py".
 ## Running the script
 
 	$python3 redsym.py update
+
 

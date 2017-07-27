@@ -897,9 +897,9 @@ def update_bigtable():
 
 
 	new_dir_folders_only_music =[]
-
-	print ("There are: ", len(new_dir_folders),  " new folders to update\n" )
-	print ("There are: ", len(deleted_dir_folders),  " folders to delete\n" )
+	print ("##### START Database update #####")
+	print ("There are: ", len(new_dir_folders),  " new folders to update in DB\n" )
+	print ("There are: ", len(deleted_dir_folders),  " folders to delete in DB\n" )
 	
 
 	for rootdir in new_dir_folders:
