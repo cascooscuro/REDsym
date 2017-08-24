@@ -12,6 +12,7 @@ redsym_dir = '/mnt/redsym/'
 
 #mysql database name and user/pass
 #this DB must be created before running the script
+DB_HOST = 'localhost'
 DB_NAME = 'REDsym'
 DB_USER = 'redsym'
 DB_PASS = 'redsym'

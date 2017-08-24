@@ -14,6 +14,7 @@ import REDsym.settings
 rootdir_wcd = REDsym.settings.rootdir_wcd
 rootdir_red = REDsym.settings.rootdir_red
 redsym_dir = REDsym.settings.redsym_dir
+DB_HOST = REDsym.settings.DB_HOST
 DB_NAME = REDsym.settings.DB_NAME
 DB_USER = REDsym.settings.DB_USER
 DB_PASS = REDsym.settings.DB_PASS
@@ -318,7 +319,7 @@ def create_DB():
 		") ENGINE=InnoDB CHARSET utf8mb4")
 	
    
-	indexdb = MySQLdb.connect(user=DB_USER, passwd=DB_PASS, host='127.0.0.1', db=DB_NAME, charset='utf8mb4', use_unicode=True)
+	indexdb = MySQLdb.connect(user=DB_USER, passwd=DB_PASS, host=DB_HOST, db=DB_NAME, charset='utf8mb4', use_unicode=True)
 	indexdbc = indexdb.cursor()
 	indexdbc.execute("""set session transaction isolation level READ COMMITTED""")
 
@@ -349,10 +350,10 @@ def create_DB():
 
 class DBase:
 
-	dsn = ("127.0.0.1",DB_USER,DB_PASS,DB_NAME)
+	dsn = (DB_HOST,DB_USER,DB_PASS,DB_NAME)
 
 	def __init__(self):
-		self.conn = MySQLdb.connect(user=DB_USER, passwd=DB_PASS, host='127.0.0.1', db=DB_NAME, charset='utf8mb4', use_unicode=True)
+		self.conn = MySQLdb.connect(user=DB_USER, passwd=DB_PASS, host=DB_HOST, db=DB_NAME, charset='utf8mb4', use_unicode=True)
 		self.cur = self.conn.cursor()
 
 	def __enter__(self):
