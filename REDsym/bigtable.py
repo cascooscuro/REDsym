@@ -119,6 +119,7 @@ def create_DB():
 		"  `seeders` int(6),"
 		"  `snatched` int(10),"
 		"  `reported` TINYINT(1),"
+		"  `has_snatched` TINYINT(1),"
 		"  `infoHash` varchar(191),"
 		"  `fileAlbumImage` varchar(255),"
 		"  `pathAlbumImage` varchar(255),"
@@ -132,6 +133,9 @@ def create_DB():
 		"  `userId` varchar(255),"
 		"  `username` varchar(255),"
 		"  `remasterCatalogueNumber` varchar(255),"
+		"  `lossyMasterApproved` TINYINT(1),"
+		"  `trumpable` TINYINT(1),"
+                "  `lossyWebApproved` TINYINT(1),"
 		"  PRIMARY KEY (`TorrentId`), UNIQUE KEY `AlbumsTorrents_index_RED` (`TorrentGroupId`, `TorrentId`), KEY AlbumsTorrents_hash_RED (`infoHash`), KEY AlbumsTorrents_hasSnatched_RED (`hasSnatched`), KEY AlbumsTorrents_dir_RED (`dir`)"
 		") ENGINE=InnoDB CHARSET utf8mb4")
 	
@@ -714,8 +718,12 @@ class DBase:
 		self.cur.executemany(sql, values_artists )
 
 		#then with group
-		del info_dict['group']['tags']
-		del info_dict['group']['musicInfo']
+		if 'tags' in info_dict['group']: del info_dict['group']['tags']
+                if 'musicInfo' in info_dict['group']: del info_dict['group']['musicInfo']
+                if 'collages' in info_dict['group']: del info_dict['group']['collages']
+                if 'personalCollages' in info_dict['group']: del info_dict['group']['personalCollages']
+                if 'bbBody' in info_dict['group']: del info_dict['group']['bbBody']
+		
 		placeholders_group = ', '.join(['%s'] * (len(info_dict['group']) ))
 		columns_group  = ', '.join(info_dict['group'].keys())
 		sql = "INSERT IGNORE INTO %s ( %s ) VALUES ( %s )" % ('Albums_RED', columns_group, placeholders_group)
